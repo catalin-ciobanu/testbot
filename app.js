@@ -20,12 +20,14 @@ const request = require("request"),
   app = express().use(body_parser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 80, () => console.log("webhook is listening"));
+let myport = process.env.PORT || 80; 
+app.listen(myport, () => console.log("webhook is listening at port: " + myport));
 
 // Accepts POST requests at /webhook endpoint
 app.post("/webhook", (req, res) => {
   // Parse the request body from the POST
   let body = req.body;
+  console.log("Incoming request"+ new Date());
 
   // Check the Incoming webhook message
   //console.log(JSON.stringify(req.body, null, 2));
