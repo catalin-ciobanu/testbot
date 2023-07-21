@@ -21,14 +21,14 @@ const request = require("request"),
 
 // Sets server port and logs message on success
 let myport = process.env.PORT || 80; 
-console.log("Token: "+ token);
+//console.log("Token: "+ token);
 app.listen(myport, () => console.log("webhook is listening at port: " + myport));
 
 // Accepts POST requests at /webhook endpoint
 app.post("/webhook", (req, res) => {
   // Parse the request body from the POST
   let body = req.body;
-  console.log("Incoming request"+ new Date()+ JSON.stringify(body));
+  console.log("Incoming request "+ new Date()+ JSON.stringify(req.body, null, 2));
 
   // Check the Incoming webhook message
   //console.log(JSON.stringify(req.body, null, 2));
