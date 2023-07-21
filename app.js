@@ -1,5 +1,5 @@
 /*
- * Starter Project for WhatsApp Echo Bot Tutorial
+Starter Project for WhatsApp Echo Bot Tutorial
  *
  * Remix this as the starting point for following the WhatsApp Echo Bot tutorial
  *
@@ -28,11 +28,11 @@ app.listen(myport, () => console.log("webhook is listening at port: " + myport))
 app.post("/webhook", (req, res) => {
   // Parse the request body from the POST
   let body = req.body;
-  console.log("Incoming request"+ new Date());
+  console.log("Incoming request"+ new Date()+ JSON.stringify(body));
 
   // Check the Incoming webhook message
   //console.log(JSON.stringify(req.body, null, 2));
-  console.log(req.body.entry[0].changes[0].value.messages[0].text.body);
+  //console.log(req.body.entry[0].changes[0].value.messages[0].text.body);
 
   // info on WhatsApp text message payload: https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#text-messages
   if (req.body.object) {
