@@ -48,12 +48,7 @@ app.post("/webhook", (req, res) => {
         req.body.entry[0].changes[0].value.metadata.phone_number_id;
       let from = req.body.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
       let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body; // extract the message text from the webhook payload
-      let response = "";
-      if(msg_body.indexOf("te iubesc")){
-        response = "Aww, si eu te iubesc!";
-      } else {
-        response = msg_body;
-      }
+      let response = msg_body.includes("te iubesc") ? "Aww, si eu te iubesc!" : "Ack: " + msg_body;
       axios({
         method: "POST", // Required, HTTP method, a string, e.g. POST, GET
         url:
@@ -64,7 +59,7 @@ app.post("/webhook", (req, res) => {
         data: {
           messaging_product: "whatsapp",
           to: from,
-          text: { body: "Ack: " + response },
+          text: { body: response },
         },
         headers: { "Content-Type": "application/json" },
       });
