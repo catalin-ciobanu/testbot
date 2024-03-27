@@ -1,10 +1,3 @@
-/*
-Starter Project for WhatsApp Echo Bot Tutorial
- *
- * Remix this as the starting point for following the WhatsApp Echo Bot tutorial
- *
- */
-
 "use strict";
 
 // Access token for your app
@@ -68,7 +61,6 @@ app.post("/webhook", (req, res) => {
 });
 
 // Accepts GET requests at the /webhook endpoint. You need this URL to setup webhook initially.
-// info on verification request payload: https://developers.facebook.com/docs/graph-api/webhooks/getting-started#verification-requests 
 app.get("/webhook", (req, res) => {
   /**
    * UPDATE YOUR VERIFY TOKEN
